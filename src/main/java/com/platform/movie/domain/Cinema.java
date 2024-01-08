@@ -8,6 +8,6 @@ import java.util.List;
 @Getter
 @Setter
 public class Cinema {
-    String name;
+    Movie movie;
     List<CinemaHall> cinemaHallList;
 }

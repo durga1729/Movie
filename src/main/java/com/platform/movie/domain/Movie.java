@@ -20,5 +20,4 @@ public class Movie {
     Cast cast;
     Crew crew;
     Votes votes;
-   List<City> cities;
 }

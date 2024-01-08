@@ -5,19 +5,29 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MovieService {
 
+    List<Movie> moviesList;
+      MovieService() {
+          moviesList = new ArrayList<>();
+      }
     public List<Movie> getMoviesByCity(String cityName) {
-        return new ArrayList<>();
+        moviesList = moviesList.stream()
+                .filter(movie -> movie.getCities().stream()
+                        .anyMatch(city -> city.getName().equalsIgnoreCase(cityName))).collect(Collectors.toList());
+        return moviesList;
     }
 
     public List<Movie> getMoviesByGenre(String genre) {
-        return new ArrayList<>();
+        moviesList = moviesList.stream().filter(m -> m.getGenre().equalsIgnoreCase(genre)).collect(Collectors.toList());
+        return moviesList;
     }
 
     public List<Movie> getMoviesByLanguage(String language) {
-        return new ArrayList<>();
+        moviesList = moviesList.stream().filter(m -> m.getLanguage().equalsIgnoreCase(language)).collect(Collectors.toList());
+        return moviesList;
     }
 }

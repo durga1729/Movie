@@ -11,4 +11,5 @@ public class CinemaHall {
     int noOfSeats;
     CinemaHallSeat cinemaHallSeat;
     List<Show> show;
+    Address address;
 }
